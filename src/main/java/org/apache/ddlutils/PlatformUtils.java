@@ -33,6 +33,7 @@ import org.apache.ddlutils.platform.cloudscape.CloudscapePlatform;
 import org.apache.ddlutils.platform.db2.Db2Platform;
 import org.apache.ddlutils.platform.derby.DerbyPlatform;
 import org.apache.ddlutils.platform.firebird.FirebirdPlatform;
+import org.apache.ddlutils.platform.h2.H2Platform;
 import org.apache.ddlutils.platform.hsqldb.HsqlDbPlatform;
 import org.apache.ddlutils.platform.interbase.InterbasePlatform;
 import org.apache.ddlutils.platform.mckoi.MckoiPlatform;
@@ -183,6 +184,11 @@ public class PlatformUtils
         jdbcSubProtocolToPlatform.put(PlatformUtils.JDBC_SUBPROTOCOL_INET_SYBASE_POOLED_2,      SybasePlatform.DATABASENAME);
         jdbcSubProtocolToPlatform.put(PlatformUtils.JDBC_SUBPROTOCOL_JTDS_SYBASE,               SybasePlatform.DATABASENAME);
 
+        //h2
+        jdbcSubProtocolToPlatform.put(H2Platform.DATABASENAMES[0],                              H2Platform.DATABASENAMES[0]);
+        jdbcSubProtocolToPlatform.put(H2Platform.DATABASENAMES[1],                              H2Platform.DATABASENAMES[0]);
+        jdbcSubProtocolToPlatform.put(H2Platform.DATABASENAMES[2],                              H2Platform.DATABASENAMES[0]);
+
         jdbcDriverToPlatform.put(AxionPlatform.JDBC_DRIVER,                       AxionPlatform.DATABASENAME);
         jdbcDriverToPlatform.put(Db2Platform.JDBC_DRIVER,                         Db2Platform.DATABASENAME);
         jdbcDriverToPlatform.put(Db2Platform.JDBC_DRIVER_OLD1,                    Db2Platform.DATABASENAME);
@@ -213,6 +219,9 @@ public class PlatformUtils
         jdbcDriverToPlatform.put(SybasePlatform.JDBC_DRIVER_OLD,                  SybasePlatform.DATABASENAME);
         jdbcDriverToPlatform.put(PlatformUtils.JDBC_DRIVER_DATADIRECT_SYBASE,     SybasePlatform.DATABASENAME);
         jdbcDriverToPlatform.put(PlatformUtils.JDBC_DRIVER_INET_SYBASE,           SybasePlatform.DATABASENAME);
+
+        //h2
+        jdbcDriverToPlatform.put(H2Platform.JDBC_DRIVER,                          H2Platform.DATABASENAMES[0]);
     }
 
     /**

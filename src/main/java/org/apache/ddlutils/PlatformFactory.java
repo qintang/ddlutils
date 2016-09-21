@@ -28,6 +28,7 @@ import org.apache.ddlutils.platform.db2.Db2Platform;
 import org.apache.ddlutils.platform.db2.Db2v8Platform;
 import org.apache.ddlutils.platform.derby.DerbyPlatform;
 import org.apache.ddlutils.platform.firebird.FirebirdPlatform;
+import org.apache.ddlutils.platform.h2.H2Platform;
 import org.apache.ddlutils.platform.hsqldb.HsqlDbPlatform;
 import org.apache.ddlutils.platform.interbase.InterbasePlatform;
 import org.apache.ddlutils.platform.maxdb.MaxDbPlatform;
@@ -182,6 +183,10 @@ public class PlatformFactory
      */
     private static void registerPlatforms()
     {
+        for (String name : H2Platform.DATABASENAMES) {
+            addPlatform(_platforms, name,
+                    H2Platform.class);
+        }
         addPlatform(_platforms, AxionPlatform.DATABASENAME,       AxionPlatform.class);
         addPlatform(_platforms, CloudscapePlatform.DATABASENAME,  CloudscapePlatform.class);
         addPlatform(_platforms, Db2Platform.DATABASENAME,         Db2Platform.class);
