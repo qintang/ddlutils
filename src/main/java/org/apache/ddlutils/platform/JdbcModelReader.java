@@ -773,7 +773,7 @@ public class JdbcModelReader
 
         try
         {
-            columnData = metaData.getColumns(metaData.escapeForSearch(tableName), getDefaultColumnPattern());
+            columnData = metaData.getColumns(getTableNamePattern(tableName), getDefaultColumnPattern());
 
             List columns = new ArrayList();
 
@@ -842,6 +842,11 @@ public class JdbcModelReader
         return column;
     }
 
+
+    protected String getTableNamePattern(String tableName) {
+        return tableName;
+    }
+    
     /**
      * Retrieves the names of the columns that make up the primary key for a given table.
      *
@@ -856,7 +861,7 @@ public class JdbcModelReader
 
         try
         {
-            pkData = metaData.getPrimaryKeys(metaData.escapeForSearch(tableName));
+            pkData = metaData.getPrimaryKeys(getTableNamePattern(tableName));
             while (pkData.next())
             {
                 Map values = readColumns(pkData, getColumnsForPK());
@@ -897,7 +902,7 @@ public class JdbcModelReader
 
         try
         {
-            fkData = metaData.getForeignKeys(metaData.escapeForSearch(tableName));
+            fkData = metaData.getForeignKeys(getTableNamePattern(tableName));
 
             while (fkData.next())
             {
@@ -1004,7 +1009,7 @@ public class JdbcModelReader
 
         try 
         {
-            indexData = metaData.getIndices(metaData.escapeForSearch(tableName), false, false);
+            indexData = metaData.getIndices(getTableNamePattern(tableName), false, false);
 
             while (indexData.next())
             {
@@ -1236,7 +1241,7 @@ public class JdbcModelReader
                 tablePattern = tablePattern.toUpperCase();
             }
 
-            tableData = metaData.getTables(metaData.escapeForSearch(tablePattern));
+            tableData = metaData.getTables(getTableNamePattern(tablePattern));
 
             boolean found  = false;
             String  schema = null;
@@ -1249,7 +1254,7 @@ public class JdbcModelReader
                 if ((tableName != null) && (tableName.length() > 0))
                 {
                     schema     = (String)values.get("TABLE_SCHEM");
-                    columnData = metaData.getColumns(metaData.escapeForSearch(tableName), getDefaultColumnPattern());
+                    columnData = metaData.getColumns(getTableNamePattern(tableName), getDefaultColumnPattern());
                     found      = true;
 
                     while (found && columnData.next())
