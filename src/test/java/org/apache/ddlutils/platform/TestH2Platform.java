@@ -125,8 +125,8 @@ public class TestH2Platform extends TestPlatformBase
             "    `COL_INDEX_3` CHAR(4),\n"+
             "    PRIMARY KEY (`COL_PK_1`, `COL_PK_2`)\n"+
             ");\n"+
-            "CREATE INDEX `testindex1` ON `table1` (`COL_INDEX_2`);\n"+
-            "CREATE UNIQUE INDEX `testindex2` ON `table1` (`COL_INDEX_3`, `COL_INDEX_1`);\n"+
+            "CREATE INDEX `UQIDX_TABLE1_testindex1` ON `table1` (`COL_INDEX_2`);\n"+
+            "CREATE UNIQUE INDEX `UQIDX_TABLE1_testindex2` ON `table1` (`COL_INDEX_3`, `COL_INDEX_1`);\n"+
             "CREATE TABLE `table2`\n"+
             "(\n"+
             "    `COL_PK`   INTEGER,\n"+

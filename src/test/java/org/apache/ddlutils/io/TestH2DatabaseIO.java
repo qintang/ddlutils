@@ -95,8 +95,8 @@ public class TestH2DatabaseIO extends TestCase
 
     public void testMysql2Xml() throws Exception{
         String jdbcDriver="org.h2.Driver";
-        //String jdbcUrl="jdbc:h2:mem:tmp-domain-db;DB_CLOSE_DELAY=-1";
-        String jdbcUrl="jdbc:h2:/tmp/tmp-domain-db";
+        String jdbcUrl="jdbc:h2:mem:tmp-domain-db;DB_CLOSE_DELAY=-1";
+        //String jdbcUrl="jdbc:h2:/tmp/tmp-domain-db";
         String jdbcUser="root";
         String jdbcPassword="root";
 
